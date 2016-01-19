@@ -1,2 +1,3 @@
 # learn_git
-some python code 
+some git learn code 
+try to modify a file
