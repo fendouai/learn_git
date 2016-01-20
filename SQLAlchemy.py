@@ -27,6 +27,8 @@ session = Session()
 res = session.query(Product).filter(text("id=1")).one()
 print res.id, res.name, res.count
 
+ins = session.query(Product)
+print ins
 
 #eg2 via sql
 sql = text("select * from products")
