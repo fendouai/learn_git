@@ -3,6 +3,7 @@ from flask import Flask
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] ='mysql://root:wangfei@localhost:3306/sbs?charset=utf8'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+
 db = SQLAlchemy(app)
 
 print db
