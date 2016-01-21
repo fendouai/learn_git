@@ -22,3 +22,9 @@ address = Table('address', metadata,
 metadata.create_all(engine)
 # 获取数据库连接
 conn = engine.connect()
+
+i = user.insert()
+print i
+u = dict(name='jack', fullname='jack Jone')
+r = conn.execute(i, **u)
+print r
