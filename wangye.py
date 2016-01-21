@@ -7,6 +7,8 @@ from sqlalchemy import Table, MetaData, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 from sqlalchemy import Column, Integer, String
+
+from sqlalchemy.orm import sessionmaker
 #define engine
 engine = create_engine('mysql://root:wangfei@localhost:3306/wangye?charset=utf8', echo=True)
 
@@ -32,3 +34,14 @@ class User(Base):
 
 #commit
 Base.metadata.create_all(engine) 
+
+Session = sessionmaker(bind=engine)
+
+session = Session()
+
+ed_user = User('ed', 'Ed Jones', 'edspassword')
+
+session.add(ed_user)
+result=session.query(User).order_by(User.id)
+session.commit()
+print result
